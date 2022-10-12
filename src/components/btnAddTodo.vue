@@ -18,11 +18,14 @@ function addTodo(){
 
 <template>
 
-  type todo content here
-  <input v-model="name"
-  type="text" 
-  class="outline-none h-[5vh] w-[25vw] rounded-sm border-4 px-2 border-teal-500">
-  <button @click="addTodo()"
-  class="bg-black text-white w-[20vw] h-10"
-  >add todo</button>
+<div class="m-2 flex w-auto">
+    <input v-model="name"
+    class="h-10 w-[80%] rounded-l-lg px-2 shadow-inner shadow-black outline-none" type="text" placeholder="type something here..." />
+    <button  @click="addTodo()"
+    class="mr-0 h-10 w-[20%] rounded-r-lg bg-teal-600 text-white hover:bg-teal-400">
+      <i class="fa-solid fa-plus text-2xl"></i>
+    </button>
+  </div>
+
+
 </template>
