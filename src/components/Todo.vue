@@ -8,9 +8,11 @@ const todos = useTodoStore();
 
 
 onMounted(() => {
-  let storedValue=JSON.parse(localStorage.getItem('todos')).rawItems || [];
 
-	todos.seetItems(storedValue);
+  if(localStorage.getItem('todos') && JSON.parse(localStorage.getItem('todos')).rawItems){
+    let storedValue=JSON.parse(localStorage.getItem('todos')).rawItems;
+    todos.setItems(storedValue);
+  }
 
 })
 

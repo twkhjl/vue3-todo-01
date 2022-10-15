@@ -46,7 +46,7 @@ export const useTodoStore = defineStore({
       this.rawItems[index].content=content;
 
     },
-    seetItems(todos){
+    setItems(todos){
       this.rawItems=todos;
 
     }
