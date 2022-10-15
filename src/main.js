@@ -11,4 +11,15 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+
+if (import.meta.hot) {
+  import.meta.hot.on(
+    "vite:beforeUpdate",
+    () => console.clear()
+  );
+}
+
+
+
+
 app.mount('#app')
