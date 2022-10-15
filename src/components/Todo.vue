@@ -31,7 +31,7 @@ watch(todos, (newVal) => {
 
 
   <div
-  style='background-image: url("<%= BASE_URL %>/bg.jpg");'
+  style='background-image: url("/bg.jpg");'
   class="
   bg-cover
   fixed top-0 left-0 -z-10
