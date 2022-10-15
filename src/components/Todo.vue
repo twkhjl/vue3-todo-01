@@ -30,9 +30,10 @@ watch(todos, (newVal) => {
 <template>
 
 
-  <div 
+  <div
+  style='background-image: url("<%= BASE_URL %>/bg.jpg");'
   class="
-  bg-[url('/bg.jpg')] bg-cover
+  bg-cover
   fixed top-0 left-0 -z-10
   mx-auto
   w-auto h-auto min-w-full min-h-full
