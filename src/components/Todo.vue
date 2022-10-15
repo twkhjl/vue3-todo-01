@@ -32,7 +32,7 @@ watch(todos, (newVal) => {
 
   <div 
   class="
-  bg-[url('src/assets/bg.jpg')] bg-cover
+  bg-[url('bg.jpg')] bg-cover
   fixed top-0 left-0 -z-10
   mx-auto
   w-auto h-auto min-w-full min-h-full
