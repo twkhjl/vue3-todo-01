@@ -3,6 +3,7 @@ import { ref, onMounted, computed, watch } from 'vue'
 
 import { useTodoStore } from '../stores/todo'
 import BtnAddTodo from './btnAddTodo.vue';
+import TodoTab from './todoTab.vue';
 import todoItem from './todoItem.vue';
 const todos = useTodoStore();
 
@@ -26,30 +27,33 @@ watch(todos, (newVal) => {
 </script>
 
 <template>
+
+
+<div
+class="
+  bg-[url('public/bg.jpg')] bg-cover
+  fixed top-0 left-0 -z-10
+  mx-auto
+  w-auto h-auto min-w-full min-h-full
+  "
+></div>
+
   <div class="w-[100%] mx-auto sm:w-[60%]">
-    <div class="mt-4 text-center text-4xl font-extralight">TODO LIST</div>
+    <div class="mt-4 text-center text-4xl text-white font-extralight">TODO LIST</div>
 
 
     <BtnAddTodo></BtnAddTodo>
 
     <div class="m-2 flex flex-col">
       <!-- tab -->
-      <div class="flex">
-        <div
-          class="h-[10vh] w-[calc(100%/3)] border-r-2 border-teal-200 bg-teal-900 text-center leading-[10vh] text-white hover:bg-teal-600">
-          <i class="fa-solid fa-circle-info"></i><span class="ml-2">ALL</span></div>
-        <div
-          class="h-[10vh] w-[calc(100%/3)] border-r-2 border-teal-200 bg-teal-900 text-center leading-[10vh] text-white hover:bg-teal-600">
-          <i class="fa-solid fa-hourglass-half"></i><span class="ml-2">PENDING</span></div>
-        <div
-          class="h-[10vh] w-[calc(100%/3)] border-r-2 border-teal-200 bg-teal-900 text-center leading-[10vh] text-white last:border-r-0 hover:bg-teal-600">
-          <i class="fa-solid fa-check"></i><span class="ml-2">DONE</span></div>
-      </div>
+      <TodoTab></TodoTab>
       <!-- /tab -->
 
       <!-- todolists -->
-    <div class="border-[1px] border-t-0 border-gray-500 bg-gray-100 py-4 shadow-sm shadow-black">
-      <div v-for="(item,index) in todos.items">
+    <div class="
+    bg-teal-600 py-4 
+    ">
+      <div v-for="(item,index) in todos.items_filter">
       <todoItem :item="item" :index="index"></todoItem>
     </div>
     </div>
@@ -62,3 +66,5 @@ watch(todos, (newVal) => {
 
 
 </template>
+
+

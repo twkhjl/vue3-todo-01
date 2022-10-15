@@ -13,7 +13,6 @@ let isInputValid=ref(true);
 function addTodo(){
   if( name.value.trim().length===0){ 
     this.isInputValid=false;
-    console.log('invalid');
     return;
   }
   this.isInputValid=true;
