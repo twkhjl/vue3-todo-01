@@ -4,6 +4,7 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
 export const useTodoStore = defineStore({
   id: 'todo',
   state: () => ({
+    itemIndex:1,
     rawItems: [],
     filter:'all',
   }),
@@ -35,9 +36,11 @@ export const useTodoStore = defineStore({
      */
     addItem(name) {
       this.rawItems.unshift({
+        index:this.itemIndex,
         content: name,
         status: 'pending'
       });
+      this.itemIndex+=1;
     },
 
     /**
@@ -45,7 +48,7 @@ export const useTodoStore = defineStore({
      * @param {number} index
      */
     removeTodo(index) {
-      if (index !== -1) this.rawItems.splice(index, 1);
+      this.rawItems= this.rawItems.filter(v=>v.index!==index);
     },
 
     /**
@@ -55,17 +58,18 @@ export const useTodoStore = defineStore({
      */
 
     updateTodo(index, content) {
-
-      this.items_filter[index].content=content;
-      // this.rawItems[index].content = content;
+      let arrIdx = this.rawItems.findIndex(v=>v.index==index);
+      this.rawItems[arrIdx].content = content;
 
     },
     toggleTodoItemStatus(index, status) {
+      let arrIdx = this.rawItems.findIndex(v=>v.index==index);
+
       if (status == 'pending') {
-        this.rawItems[index].status = 'done';
+        this.rawItems[arrIdx].status = 'done';
         return;
       }
-      this.rawItems[index].status = 'pending';
+      this.rawItems[arrIdx].status = 'pending';
     },
     changeTodoFilter(filter){
       this.filter=filter;

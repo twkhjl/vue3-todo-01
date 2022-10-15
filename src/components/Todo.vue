@@ -9,20 +9,20 @@ import todoItem from './todoItem.vue';
 
 const todos = useTodoStore();
 
-onMounted(() => {
+// onMounted(() => {
 
-  if (sessionStorage.getItem('todos') && JSON.parse(sessionStorage.getItem('todos')).rawItems) {
-    let storedValue = JSON.parse(sessionStorage.getItem('todos')).rawItems;
-    todos.setItems(storedValue);
-  }
+//   if (sessionStorage.getItem('todos') && JSON.parse(sessionStorage.getItem('todos')).rawItems) {
+//     let storedValue = JSON.parse(sessionStorage.getItem('todos')).rawItems;
+//     todos.setItems(storedValue);
+//   }
 
-})
+// })
 
-watch(todos, (newVal) => {
-  sessionStorage.setItem('todos', JSON.stringify(newVal))
-}, {
-  deep: true
-})
+// watch(todos, (newVal) => {
+//   sessionStorage.setItem('todos', JSON.stringify(newVal))
+// }, {
+//   deep: true
+// })
 
 
 </script>

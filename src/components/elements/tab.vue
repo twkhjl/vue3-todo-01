@@ -22,6 +22,6 @@ function changeFilter(){
       class="h-[10vh] w-[calc(100%/3)] 
       border-r-2 border-teal-200 last:border-r-0 
       text-center leading-[10vh] text-white hover:bg-teal-400 hover:text-black">
-      <i :class="iconClass"></i><span class="ml-2">{{ text }}</span>
+      <i :class="iconClass"></i><span class="ml-2 text-xl font-extralight">{{ text }}</span>
     </div>
 </template>

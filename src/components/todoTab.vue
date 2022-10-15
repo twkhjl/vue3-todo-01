@@ -11,6 +11,13 @@ let todoFilter = ref('all');
 
 let tabText=ref(['ALL','PENDING','DONE']);
 
+function filterQty(status){
+  if(status=='all'){
+  return todoStore.items.length;
+  }
+  return todoStore.items.filter(v=>v.status==status).length;
+
+}
 
 function changeTodoFilter(filter) {
   todoFilter.value = filter;
@@ -21,11 +28,11 @@ function changeTodoFilter(filter) {
 
 <template>
   <div class="flex">
-    <Tab :text="tabText[0]" :tab-filter-name="'all'" :icon-class="'fa-solid fa-circle-info'"
+    <Tab :text="tabText[0]+`: ${filterQty('all')}`" :tab-filter-name="'all'" :icon-class="'fa-solid fa-circle-info'"
     @on-click-tab-event="changeTodoFilter"></Tab>
-    <Tab :text="tabText[1]" :tab-filter-name="'pending'" :icon-class="'fa-solid fa-hourglass-half'"
+    <Tab :text="tabText[1]+`: ${filterQty('pending')}`" :tab-filter-name="'pending'" :icon-class="'fa-solid fa-hourglass-half'"
     @on-click-tab-event="changeTodoFilter"></Tab>
-    <Tab :text="tabText[2]" :tab-filter-name="'done'"  :icon-class="'fa-solid fa-check'"
+    <Tab :text="tabText[2]+`: ${filterQty('done')}`" :tab-filter-name="'done'"  :icon-class="'fa-solid fa-check'"
     @on-click-tab-event="changeTodoFilter"></Tab>
 
     <!-- <div @click="changeTodoFilter('all')"
