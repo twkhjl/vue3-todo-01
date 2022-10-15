@@ -11,15 +11,15 @@ const todos = useTodoStore();
 
 onMounted(() => {
 
-  if (localStorage.getItem('todos') && JSON.parse(localStorage.getItem('todos')).rawItems) {
-    let storedValue = JSON.parse(localStorage.getItem('todos')).rawItems;
+  if (sessionStorage.getItem('todos') && JSON.parse(sessionStorage.getItem('todos')).rawItems) {
+    let storedValue = JSON.parse(sessionStorage.getItem('todos')).rawItems;
     todos.setItems(storedValue);
   }
 
 })
 
 watch(todos, (newVal) => {
-  localStorage.setItem('todos', JSON.stringify(newVal))
+  sessionStorage.setItem('todos', JSON.stringify(newVal))
 }, {
   deep: true
 })
