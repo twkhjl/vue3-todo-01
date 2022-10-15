@@ -28,13 +28,13 @@ function setOldInput() {
 }
 function updateTodo(index, content) {
 	if (str_old_input == input_edit_item.value.value) {
-		this.editable = !this.editable;
+		editable.value = !editable.value;
 		return;
 	}
 	let newContent = input_edit_item.value.value;
 	todoStore.updateTodo(index, newContent);
 
-	this.editable = !this.editable;
+	editable.value = !editable.value;
 
 }
 function toggleTodoItemStatus(index, status) {

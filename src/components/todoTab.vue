@@ -25,7 +25,7 @@ function changeTodoFilter(filter) {
     @on-click-tab-event="changeTodoFilter"></Tab>
     <Tab :text="tabText[1]" :tab-filter-name="'pending'" :icon-class="'fa-solid fa-hourglass-half'"
     @on-click-tab-event="changeTodoFilter"></Tab>
-    <Tab :text="tabText[1]" :tab-filter-name="'done'"  :icon-class="'fa-solid fa-check'"
+    <Tab :text="tabText[2]" :tab-filter-name="'done'"  :icon-class="'fa-solid fa-check'"
     @on-click-tab-event="changeTodoFilter"></Tab>
 
     <!-- <div @click="changeTodoFilter('all')"
